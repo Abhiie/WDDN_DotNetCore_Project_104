@@ -1,0 +1,81 @@
+﻿@model IEnumerable<VotingCore.Models.Elections>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">Elections</h2>
+    </div>
+
+    <br />
+    <div class="col-12">
+
+
+        <table class="table table-striped border">
+            <thead>
+                <tr class="table-info">
+                    <th>
+                        @Html.DisplayNameFor(model => model.Title)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StartingDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EndingDate)
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StartingDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EndingDate)
+                        </td>
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <td class="text-right">
+                                <div class="btn-group" role="group">
+                                    <a type="button" href="#" class="btn btn-success"><i class="fas fa-vote-yea"></i></a>
+
+
+                                </div>
+                            </td>
+                        }
+                        else
+                        {
+                            <td class="text-right">
+                                <div class="btn-group" role="group">
+                                    <a type="button" asp-action="Candidate" class="btn btn-success"><i class="fas fa-vote-yea"></i></a>
+
+
+                                </div>
+                            </td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+
+
+
+
+    </div>
+</div>

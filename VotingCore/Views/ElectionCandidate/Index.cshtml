@@ -1,0 +1,69 @@
+﻿@model IEnumerable<VotingCore.Models.Candidate>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">Candidates</h2>
+    </div>
+
+    <br />
+    <div class="col-12">
+
+
+        <table class="table table-striped border">
+            <thead>
+                <tr class="table-info">
+                    <th>
+                        @Html.DisplayNameFor(model => model.CandidateName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CandidateNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CandidateEmailAddress)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Position)
+                    </th>
+
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CandidateName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CandidateNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CandidateEmailAddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Position)
+                        </td>
+                        <td class="text-right">
+                            <partial name="_BtnPartial" model="item.Id" />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+
+
+
+
+    </div>
+</div>

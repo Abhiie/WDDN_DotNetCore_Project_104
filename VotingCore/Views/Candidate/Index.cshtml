@@ -1,0 +1,67 @@
+﻿@model IEnumerable<VotingCore.Models.Candidate>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">Add Elections</h2>
+    </div>
+    <div class="col-6 text-right">
+        <a class="btn btn-info" asp-action="Create">Add New Candidate</a>
+    </div>
+    <br />
+    <div class="col-12">
+
+
+        <table class="table table-striped border">
+            <thead>
+                <tr class="table-info">
+                    <th>
+                        @Html.DisplayNameFor(model => model.CandidateName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CandidateNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CandidateEmailAddress)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Position)
+                    </th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CandidateName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CandidateNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CandidateEmailAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Position)
+                    </td>
+                   
+
+                    <partial name="_TableBtnPartial" model="item.Id" />
+                </tr>
+                }
+            </tbody>
+        </table>
+
+
+
+
+
+
+    </div>
+</div>

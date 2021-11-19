@@ -1,0 +1,73 @@
+﻿@model VotingCore.Models.Voters
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2  class="text-info">Add Voters</h2>
+
+
+<form method="post" action="Create">
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="Fname">
+
+            </label>
+        </div>
+        <div class="col-4">
+            <input asp-for="Fname" class="form-control" />
+
+        </div>
+
+        <div class="col-2">
+            <label asp-for="Lname">
+
+            </label>
+        </div>
+        <div class="col-4">
+            <input asp-for="Lname" class="form-control" />
+
+        </div>
+
+        <div class="col-2">
+            <label asp-for="PanNumber">
+
+            </label>
+        </div>
+        <div class="col-4">
+            <input asp-for="PanNumber" class="form-control" />
+
+        </div>
+
+        <div class="col-2">
+            <label asp-for="EmailId">
+
+            </label>
+        </div>
+        <div class="col-4">
+            <input asp-for="EmailId" class="form-control" />
+
+        </div>
+
+        <div class="col-2">
+            <label asp-for="Contact_number">
+
+            </label>
+        </div>
+        <div class="col-4">
+            <input asp-for="Contact_number" class="form-control" />
+
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Create" />
+            <a asp-action="Index" class="btn btn-success">Back</a>
+        </div>
+
+    </div>
+
+</form>
+
+
+
+
